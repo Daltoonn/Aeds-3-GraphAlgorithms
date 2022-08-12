@@ -3,13 +3,12 @@
 //private adj Matrix [][]int
 //public add Edge (source:int,sink:int,weight:int)
 
-
-
 public class Graph {
     
 private int countNodes;
 private int countEdges;
 private int[][] adjMatrix;
+private int maior;
 
 public Graph(int countNodes){
  this.countNodes = countNodes;
@@ -64,6 +63,58 @@ public String toString() {
     return degree;
 
   }
+
+
+  public int highestDegree(){
+
+   int highestDegree = 0;
+   
+   for (int j = 0; j < this.adjMatrix.length;++j){
+        int degreeNodeJ = degree(j);
+        if(highestDegree<degreeNodeJ)
+            highestDegree = degreeNodeJ;
+
+   }
+    return highestDegree;
+
+  }
+
+  public int lowestDegree(){
+
+    int lowestDegree = 0;
+    
+    for (int j = 0; j < this.adjMatrix.length;++j){
+         int degreeNodeJ = degree(j);
+         if(lowestDegree>degreeNodeJ)
+         lowestDegree = degreeNodeJ;
+ 
+    }
+     return lowestDegree;
+ 
+   }
+
+   public Graph comporplement(){
+            Graph gc = new Graph(this.countEdges);
+            for(int i =0;i<countNodes;i++){
+              for(int j =0;j<countNodes;j++){
+                if(adjMatrix[i][j]== 0 && i!= j){
+                  gc.addEdge(i, j, 1);
+                }
+              }
+
+            }
+
+
+
+
+return gc;
+
+   } 
+
+
+
+
+
 
 
 

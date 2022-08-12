@@ -18,6 +18,16 @@ public class Main {
     System.out.println(g1.degree(3));
 
 
+    System.out.println("\nHighestDegree:");
+    System.out.println(g1.highestDegree());
+
+    System.out.println("\nlowestDegree:");
+    System.out.println(g1.lowestDegree());
+     
+    System.out.println("\nComplement graph");
+    System.out.println(g1.comporplement());
+
     }
+
 
 }
